@@ -90,14 +90,31 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": [
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
         "logs:PutLogEvents",
+        "glue:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:AbortMultipartUpload",
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:ListBucketMultipartUploads",
         "s3:PutObject"
       ],
-      "Effect": "Allow",
-      "Resource": "*"
+      "Resource": [
+        "${aws_s3_bucket.stream.arn}",
+        "${aws_s3_bucket.stream.arn}/*"
+      ]
     }
   ]
 }
@@ -108,7 +125,7 @@ EOF
    role       = aws_iam_role.firehose_role.name
    policy_arn = aws_iam_policy.firehose.arn
  }
- 
+
 ###############
 ## GLUE ROLE ##
 ###############
