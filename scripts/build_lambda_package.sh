@@ -42,7 +42,7 @@ then
     echo "Copiando função Handler..."
     cp $LAMBDA_FUNCTION .
     echo "Compactando arquivo lambda_fuction_payload.zip"
-    zip .r9 ../lambda_function_payload.zip . #Compacta o pacote para o deploy
+    7z a -tzip ../lambda_function_payload.zip . #Compacta o pacote para o deploy
     echo "Arquivo compactado com sucesso"
     echo "================================="
 fi
