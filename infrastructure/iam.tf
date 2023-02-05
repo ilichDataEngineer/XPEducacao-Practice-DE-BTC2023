@@ -94,7 +94,13 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
              "Action": [
                  "logs:CreateLogGroup",
                  "logs:CreateLogStream",
-                 "logs:PutLogEvents",
+                 "logs:PutLogEvents"
+             ],
+             "Resource": "*"
+         },
+         {
+             "Effect": "Allow",
+             "Action": [
                  "glue:*"
              ],
              "Resource": "*"
