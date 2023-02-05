@@ -75,9 +75,6 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
   policy_arn = aws_iam_policy.lambda.arn
 }
 
-#############
-## KINESIS ##
-#############
 
  resource "aws_iam_policy" "firehose" {
    name        = "IGTIFirehosePolicy"
