@@ -20,7 +20,11 @@ EOF
       IES = "IGTI",
       CURSO = "EDC"
     }
+
+    
 }
+
+
 
 resource "aws_iam_policy" "lambda" {
     name = "IGTIAWSLambdaBasicExecutionRolePolicy"
@@ -122,7 +126,8 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
    policy_arn = aws_iam_policy.firehose.arn
  }
 
- ###############
+
+###############
 ## GLUE ROLE ##
 ###############
 
