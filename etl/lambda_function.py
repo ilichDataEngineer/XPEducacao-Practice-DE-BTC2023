@@ -10,7 +10,7 @@ def handler(event, context):
         Name='EMR-Ib-IGTI-delta',
         ServiceRole='EMR_DefaultRole',
         JobFlowRole='EMR_EC2_DefaultRole',
-        VisibleRoAllUsers=True,
+        VisibleToAllUsers=True,
         LogUri='s3://datalake-ib-igti-edc-tf/emr-logs',
         ReleaseLabel='emr-6.3.0',
                 Instances={
