@@ -92,7 +92,9 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
          {
              "Effect": "Allow",
              "Action": [
-                 "logs:*",
+                 "logs:CreateLogGroup",
+                 "logs:CreateLogStream",
+                 "logs:PutLogEvents",
                  "glue:*"
              ],
              "Resource": "*"
@@ -100,9 +102,19 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
          {
              "Effect": "Allow",
              "Action": [
-                 "s3:*"
+                 "s3:AbortMultipartUpload",
+                 "s3:GetBucketLocation",
+                 "s3:GetObject",
+                 "s3:GetObjectVersion",
+                 "s3:DeleteObject",
+                 "s3:ListBucket",
+                 "s3:ListBucketMultipartUploads",
+                 "s3:PutObject"
              ],
-             "Resource": "*"
+             "Resource": [
+               "${aws_s3_bucket.stream.arn}",
+               "${aws_s3_bucket.stream.arn}/*"
+             ]
          }
      ]
  }

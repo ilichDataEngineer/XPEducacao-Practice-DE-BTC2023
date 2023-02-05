@@ -16,6 +16,7 @@ resource "aws_s3_bucket" "dl" {
   }
 }
 
+
 resource "aws_s3_bucket" "stream" {
   bucket = "igti-ib-streaming-bucket"
   acl    = "private"

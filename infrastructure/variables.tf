@@ -5,3 +5,7 @@ variable "aws_region" {
 variable "lambda_function_name" {
   default = "IGTIexecutaEMRaovivo"
 }
+
+variable "key_pair_name" {
+  default = "ib-igti-teste"
+}
