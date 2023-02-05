@@ -102,10 +102,7 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
              "Action": [
                  "s3:*"
              ],
-             "Resource": [
-               "${aws_s3_bucket.stream.arn}",
-               "${aws_s3_bucket.stream.arn}/*"
-             ]
+             "Resource": "*"
          }
      ]
  }
